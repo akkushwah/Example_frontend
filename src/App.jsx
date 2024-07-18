@@ -8,7 +8,7 @@ function App() {
   const [data, setData] = useState([]);
 
   const getData = async () => {
-    const mainData = await axios.get(import.meta.env.VITE_URL)
+    const mainData = await axios.get(process.env.VITE_URL)
     setData(mainData.data)
     console.log(mainData)
   }
