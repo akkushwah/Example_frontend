@@ -20,14 +20,28 @@ function App() {
 
   return (
     <>
-      <h1>Corurses</h1>
-      {
-        data.map((d) => {
-          return (<h2 key={d.id}>{d.id}. {d.course}</h2>)
-
-        })
-
-      }
+      <h1>Todos</h1>
+      <table>
+        <thead>
+          <tr>
+            <td>ID</td>
+            <td>Task</td>
+            <td>Completed</td>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            data.map((d) => {
+              return (
+                <tr>
+                  <td>{d.id}</td>
+                  <td>{d.title}</td>
+                  <td>{(d.completed) ? "✅" : "❌"}</td>
+                </tr>)
+            })
+          }
+        </tbody>
+      </table>
     </>
   )
 }
