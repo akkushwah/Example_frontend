@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import axios from 'axios';
 import './App.css'
+
+
 
 function App() {
   const [data, setData] = useState([]);
 
   const getData = async () => {
-    const mainData = await axios.get('https://example-backend-w1pq.onrender.com/courses')
+    const mainData = await axios.get(import.meta.env.VITE_URL)
     setData(mainData.data)
-    // console.log(mainData)
+    console.log(mainData)
   }
 
   useEffect(() => {
@@ -21,7 +23,7 @@ function App() {
       <h1>Corurses</h1>
       {
         data.map((d) => {
-          return (<h2>{d.id}. {d.course}</h2>)
+          return (<h2 key={d.id}>{d.id}. {d.course}</h2>)
 
         })
 
